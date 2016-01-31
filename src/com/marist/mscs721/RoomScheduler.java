@@ -70,8 +70,21 @@ public class RoomScheduler {
 	{
 		ArrayList<Room> finalRooms = new ArrayList<Room>();
 		//get filename
-		System.out.println("Please specify the full pathname and filename of the file you wish to read from:");
-		String filename = keyboard.next();
+		boolean inputVerify = false;
+		String filename = "";
+		while(!inputVerify)
+		{
+			System.out.println("Please specify the full pathname and filename of the file you wish to read from:");
+			 filename = keyboard.next();
+			if(filename.contains(".json"))
+			{
+				inputVerify = true;
+			}
+			else
+			{
+				System.out.println("ERROR: Please specify a .JSON file.");
+			}
+		}
 		//read from file
 		Gson gson = new Gson();
 		try{
