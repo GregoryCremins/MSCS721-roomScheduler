@@ -304,6 +304,7 @@ public class RoomScheduler {
 			if(validateTimestamp(testTime))
 			{
 				startTimestamp = Timestamp.valueOf(testTime);
+				inputCheck = true;
 			}
 			else
 			{
@@ -324,6 +325,7 @@ public class RoomScheduler {
 			if(validateTimestamp(testTime))
 			{
 				endTimestamp = Timestamp.valueOf(testTime);
+				inputCheck = true;
 			}
 			else
 			{
