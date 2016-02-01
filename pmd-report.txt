@@ -1,0 +1,221 @@
+src/com/marist/mscs721/Meeting.java:12:	Avoid using redundant field initializer for 'startTime'
+src/com/marist/mscs721/Meeting.java:12:	fieldCommentRequirement Required
+src/com/marist/mscs721/Meeting.java:13:	Avoid using redundant field initializer for 'stopTime'
+src/com/marist/mscs721/Meeting.java:13:	fieldCommentRequirement Required
+src/com/marist/mscs721/Meeting.java:14:	Avoid using redundant field initializer for 'subject'
+src/com/marist/mscs721/Meeting.java:14:	fieldCommentRequirement Required
+src/com/marist/mscs721/Meeting.java:22:	Parameter 'newEndTime' is not assigned and could be declared final
+src/com/marist/mscs721/Meeting.java:22:	Parameter 'newStartTime' is not assigned and could be declared final
+src/com/marist/mscs721/Meeting.java:22:	Parameter 'newSubject' is not assigned and could be declared final
+src/com/marist/mscs721/Meeting.java:23:	Overridable method 'setStartTime' called during object construction
+src/com/marist/mscs721/Meeting.java:24:	Overridable method 'setStopTime' called during object construction
+src/com/marist/mscs721/Meeting.java:29:	Overridable method 'setSubject' called during object construction
+src/com/marist/mscs721/Meeting.java:37:	Avoid reassigning parameters such as 'data'
+src/com/marist/mscs721/Meeting.java:40:	Local variable 'datapieces' could be declared final
+src/com/marist/mscs721/Meeting.java:41:	Overridable method 'parseTime' called during object construction
+src/com/marist/mscs721/Meeting.java:41:	Overridable method 'setStartTime' called during object construction
+src/com/marist/mscs721/Meeting.java:42:	Overridable method 'parseTime' called during object construction
+src/com/marist/mscs721/Meeting.java:42:	Overridable method 'setStopTime' called during object construction
+src/com/marist/mscs721/Meeting.java:43:	Overridable method 'setSubject' called during object construction
+src/com/marist/mscs721/Meeting.java:66:	Parameter 'startTime' is not assigned and could be declared final
+src/com/marist/mscs721/Meeting.java:82:	Parameter 'stopTime' is not assigned and could be declared final
+src/com/marist/mscs721/Meeting.java:97:	Parameter 'subject' is not assigned and could be declared final
+src/com/marist/mscs721/Meeting.java:105:	Parameter 'data' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:11:	Avoid short class names like Room
+src/com/marist/mscs721/Room.java:13:	fieldCommentRequirement Required
+src/com/marist/mscs721/Room.java:14:	fieldCommentRequirement Required
+src/com/marist/mscs721/Room.java:15:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/Room.java:15:	fieldCommentRequirement Required
+src/com/marist/mscs721/Room.java:23:	Parameter 'newCapacity' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:23:	Parameter 'newName' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:24:	Overridable method 'setName' called during object construction
+src/com/marist/mscs721/Room.java:32:	Avoid reassigning parameters such as 'data'
+src/com/marist/mscs721/Room.java:32:	Avoid reassigning parameters such as 'data'
+src/com/marist/mscs721/Room.java:32:	Avoid reassigning parameters such as 'data'
+src/com/marist/mscs721/Room.java:34:	Local variable 'namePosn' could be declared final
+src/com/marist/mscs721/Room.java:36:	Overridable method 'setName' called during object construction
+src/com/marist/mscs721/Room.java:36:	String.indexOf(char) is faster than String.indexOf(String).
+src/com/marist/mscs721/Room.java:37:	String.indexOf(char) is faster than String.indexOf(String).
+src/com/marist/mscs721/Room.java:38:	Local variable 'capPosn' could be declared final
+src/com/marist/mscs721/Room.java:39:	String.indexOf(char) is faster than String.indexOf(String).
+src/com/marist/mscs721/Room.java:40:	String.indexOf(char) is faster than String.indexOf(String).
+src/com/marist/mscs721/Room.java:41:	Local variable 'meetPosn' could be declared final
+src/com/marist/mscs721/Room.java:43:	Avoid using Literals in Conditional Statements
+src/com/marist/mscs721/Room.java:45:	Local variable 'meetStrings' could be declared final
+src/com/marist/mscs721/Room.java:46:	Local variable 'meetingsA' could be declared final
+src/com/marist/mscs721/Room.java:49:	Avoid instantiating new objects inside loops
+src/com/marist/mscs721/Room.java:51:	Overridable method 'setMeetings' called during object construction
+src/com/marist/mscs721/Room.java:63:	Parameter 'newMeeting' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:69:	System.out.println is used
+src/com/marist/mscs721/Room.java:73:	System.out.println is used
+src/com/marist/mscs721/Room.java:89:	Parameter 'name' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:105:	Parameter 'capacity' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:113:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/Room.java:121:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/Room.java:121:	Parameter 'meetings' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:126:	Comment is too large: Line too long
+src/com/marist/mscs721/Room.java:130:	Found 'UR'-anomaly for variable 'm' (lines '130'-'135').
+src/com/marist/mscs721/Room.java:130:	Parameter 'meeting' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:132:	Local variable 'meetingsL' could be declared final
+src/com/marist/mscs721/Room.java:133:	Local variable 'm' could be declared final
+src/com/marist/mscs721/Room.java:137:	A method should have only one exit point, and that should be the last statement in the method
+src/com/marist/mscs721/Room.java:151:	Parameter 'endA' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:151:	Parameter 'endB' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:151:	Parameter 'startA' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:151:	Parameter 'startB' is not assigned and could be declared final
+src/com/marist/mscs721/Room.java:153:	Useless parentheses.
+src/com/marist/mscs721/Room.java:153:	Useless parentheses.
+src/com/marist/mscs721/RoomScheduler.java:1:	Possible God class (WMC=50, ATFD=8, TCC=0.0)
+src/com/marist/mscs721/RoomScheduler.java:20:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/com/marist/mscs721/RoomScheduler.java:20:	The class 'RoomScheduler' has a Cyclomatic Complexity of 4 (Highest = 10).
+src/com/marist/mscs721/RoomScheduler.java:20:	The class 'RoomScheduler' has a Standard Cyclomatic Complexity of 4 (Highest = 10).
+src/com/marist/mscs721/RoomScheduler.java:20:	This class has too many methods, consider refactoring it.
+src/com/marist/mscs721/RoomScheduler.java:22:	fieldCommentRequirement Required
+src/com/marist/mscs721/RoomScheduler.java:27:	Consider using varargs for methods or constructors which take an array the last parameter.
+src/com/marist/mscs721/RoomScheduler.java:27:	Parameter 'args' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:27:	The method 'main' has a Cyclomatic Complexity of 10.
+src/com/marist/mscs721/RoomScheduler.java:27:	The method 'main' has a Standard Cyclomatic Complexity of 10.
+src/com/marist/mscs721/RoomScheduler.java:31:	Found 'DD'-anomaly for variable 'rooms' (lines '31'-'53').
+src/com/marist/mscs721/RoomScheduler.java:31:	Found 'DU'-anomaly for variable 'rooms' (lines '31'-'62').
+src/com/marist/mscs721/RoomScheduler.java:33:	A switch statement does not contain a break
+src/com/marist/mscs721/RoomScheduler.java:35:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:38:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:41:	System.out.print is used
+src/com/marist/mscs721/RoomScheduler.java:44:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:47:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:53:	Found 'DU'-anomaly for variable 'rooms' (lines '53'-'62').
+src/com/marist/mscs721/RoomScheduler.java:56:	Found 'DU'-anomaly for variable 'end' (lines '56'-'62').
+src/com/marist/mscs721/RoomScheduler.java:59:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:67:	Comment is too large: Line too long
+src/com/marist/mscs721/RoomScheduler.java:69:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:69:	Found 'UR'-anomaly for variable 'r' (lines '69'-'95').
+src/com/marist/mscs721/RoomScheduler.java:71:	Local variable 'finalRooms' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:74:	Found 'DD'-anomaly for variable 'filename' (lines '74'-'78').
+src/com/marist/mscs721/RoomScheduler.java:77:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:79:	Potential violation of Law of Demeter (object not created locally)
+src/com/marist/mscs721/RoomScheduler.java:85:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:89:	Local variable 'gson' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:91:	Avoid variables with short names like br
+src/com/marist/mscs721/RoomScheduler.java:91:	Local variable 'br' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:92:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:92:	Local variable 'rooms' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:93:	Local variable 'r' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:95:	Avoid instantiating new objects inside loops
+src/com/marist/mscs721/RoomScheduler.java:102:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:109:	Comment is too large: Line too long
+src/com/marist/mscs721/RoomScheduler.java:111:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:111:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:114:	Local variable 'gson' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:115:	Local variable 'json' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:115:	Potential violation of Law of Demeter (object not created locally)
+src/com/marist/mscs721/RoomScheduler.java:118:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:122:	Avoid if (x != y) ..; else ..;
+src/com/marist/mscs721/RoomScheduler.java:122:	Potential violation of Law of Demeter (object not created locally)
+src/com/marist/mscs721/RoomScheduler.java:124:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:125:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:135:	Local variable 'writer' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:138:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:142:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:144:	Avoid unnecessary return statements
+src/com/marist/mscs721/RoomScheduler.java:144:	Avoid unnecessary return statements
+src/com/marist/mscs721/RoomScheduler.java:151:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:151:	Found 'UR'-anomaly for variable 'm' (lines '151'-'158').
+src/com/marist/mscs721/RoomScheduler.java:151:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:152:	Local variable 'roomName' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:153:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:154:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:155:	Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()
+src/com/marist/mscs721/RoomScheduler.java:157:	Local variable 'm' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:157:	Potential violation of Law of Demeter (method chain calls)
+src/com/marist/mscs721/RoomScheduler.java:158:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:168:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:169:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:170:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:171:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:172:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:173:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:174:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:175:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:176:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:177:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:187:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:196:	Comment is too large: Line too long
+src/com/marist/mscs721/RoomScheduler.java:198:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:198:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:199:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:201:	Found 'DD'-anomaly for variable 'name' (lines '201'-'212').
+src/com/marist/mscs721/RoomScheduler.java:206:	Found 'DD'-anomaly for variable 'foundRoom' (lines '206'-'217').
+src/com/marist/mscs721/RoomScheduler.java:207:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:209:	Local variable 'test' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:212:	Found 'DD'-anomaly for variable 'name' (lines '212'-'212').
+src/com/marist/mscs721/RoomScheduler.java:216:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:221:	Found 'DD'-anomaly for variable 'capacity' (lines '221'-'229').
+src/com/marist/mscs721/RoomScheduler.java:226:	Found 'DD'-anomaly for variable 'inputCheck' (lines '226'-'234').
+src/com/marist/mscs721/RoomScheduler.java:228:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:229:	Found 'DD'-anomaly for variable 'capacity' (lines '229'-'229').
+src/com/marist/mscs721/RoomScheduler.java:233:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:235:	Avoid instantiating new objects inside loops
+src/com/marist/mscs721/RoomScheduler.java:239:	Local variable 'newRoom' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:249:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:249:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:250:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:251:	Local variable 'index' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:253:	Avoid if (x != y) ..; else ..;
+src/com/marist/mscs721/RoomScheduler.java:256:	A method should have only one exit point, and that should be the last statement in the method
+src/com/marist/mscs721/RoomScheduler.java:269:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:269:	Found 'UR'-anomaly for variable 'room' (lines '269'-'274').
+src/com/marist/mscs721/RoomScheduler.java:269:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:270:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:271:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:273:	Local variable 'room' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:274:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:277:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:287:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:287:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:290:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:291:	Local variable 'name' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:295:	Found 'DD'-anomaly for variable 'startTimestamp' (lines '295'-'306').
+src/com/marist/mscs721/RoomScheduler.java:298:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:299:	Local variable 'startDate' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:300:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:301:	Found 'DD'-anomaly for variable 'startTime' (lines '301'-'302').
+src/com/marist/mscs721/RoomScheduler.java:302:	Prefer StringBuffer over += for concatenating strings
+src/com/marist/mscs721/RoomScheduler.java:303:	Local variable 'testTime' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:306:	Found 'DD'-anomaly for variable 'startTimestamp' (lines '306'-'306').
+src/com/marist/mscs721/RoomScheduler.java:311:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:316:	Found 'DD'-anomaly for variable 'endTimestamp' (lines '316'-'327').
+src/com/marist/mscs721/RoomScheduler.java:319:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:320:	Local variable 'endDate' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:321:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:322:	Found 'DD'-anomaly for variable 'endTime' (lines '322'-'323').
+src/com/marist/mscs721/RoomScheduler.java:323:	Prefer StringBuffer over += for concatenating strings
+src/com/marist/mscs721/RoomScheduler.java:324:	Local variable 'testTime' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:327:	Found 'DD'-anomaly for variable 'endTimestamp' (lines '327'-'327').
+src/com/marist/mscs721/RoomScheduler.java:332:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:336:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:337:	Local variable 'subject' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:339:	Local variable 'curRoom' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:341:	Local variable 'meeting' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:343:	Potential violation of Law of Demeter (object not created locally)
+src/com/marist/mscs721/RoomScheduler.java:353:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:353:	Parameter 'name' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:353:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:363:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:363:	Found 'UR'-anomaly for variable 'room' (lines '363'-'367').
+src/com/marist/mscs721/RoomScheduler.java:363:	Parameter 'roomList' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:363:	Parameter 'roomName' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:364:	Found 'DD'-anomaly for variable 'roomIndex' (lines '364'-'370').
+src/com/marist/mscs721/RoomScheduler.java:365:	Found 'DD'-anomaly for variable 'finalRoomIndex' (lines '365'-'374').
+src/com/marist/mscs721/RoomScheduler.java:366:	Local variable 'room' could be declared final
+src/com/marist/mscs721/RoomScheduler.java:367:	Potential violation of Law of Demeter (method chain calls)
+src/com/marist/mscs721/RoomScheduler.java:367:	Potential violation of Law of Demeter (object not created locally)
+src/com/marist/mscs721/RoomScheduler.java:370:	Found 'DD'-anomaly for variable 'roomIndex' (lines '370'-'370').
+src/com/marist/mscs721/RoomScheduler.java:384:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/marist/mscs721/RoomScheduler.java:384:	Parameter 'rooms' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:387:	Found 'DD'-anomaly for variable 'test' (lines '387'-'392').
+src/com/marist/mscs721/RoomScheduler.java:390:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:396:	System.out.println is used
+src/com/marist/mscs721/RoomScheduler.java:408:	Comment is too large: Line too long
+src/com/marist/mscs721/RoomScheduler.java:412:	Avoid variables with short names like t
+src/com/marist/mscs721/RoomScheduler.java:412:	Parameter 't' is not assigned and could be declared final
+src/com/marist/mscs721/RoomScheduler.java:414:	Found 'DD'-anomaly for variable 'returnVal' (lines '414'-'421').

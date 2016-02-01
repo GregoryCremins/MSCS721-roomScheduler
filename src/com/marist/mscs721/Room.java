@@ -63,7 +63,7 @@ public class Room {
 	public void addMeeting(Meeting newMeeting) 
 	{ 
 		//add verification
-		if(this.verifySchedule(newMeeting) == true)
+		if(this.verifySchedule(newMeeting))
 		{
 			this.getMeetings().add(newMeeting);
 			System.out.println("Successfully scheduled meeting!");
@@ -150,14 +150,8 @@ public class Room {
 	 */
 	public boolean checkMeeting(Timestamp startA, Timestamp endA, Timestamp startB, Timestamp endB)
 	{
-		if(startA.after(endB) && endA.before(startB))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return startA.after(endB) && endA.before(startB);
+		
 	}
 
 }

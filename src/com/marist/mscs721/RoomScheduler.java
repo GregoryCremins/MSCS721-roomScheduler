@@ -141,7 +141,6 @@ public class RoomScheduler {
 		{
 			System.out.println("ERROR WRITING TO DISK: Unable to create JSON file. Please try again.");
 		}
-		return;
 	}
 	/**
 	 * Function to handle listing a schedule for a given room
@@ -201,7 +200,7 @@ public class RoomScheduler {
 		String name = "";
 		boolean foundRoom = true;
 
-		while(foundRoom == true)
+		while(foundRoom)
 		{
 			foundRoom = false;
 			System.out.println("Room Name?");
