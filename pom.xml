@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>RoomScheduler</groupId>
+  <artifactId>RoomScheduler</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source/>
+          <target/>
+        </configuration>
+      </plugin>
+      <plugin>
+      	<groupId>org.apache.maven.plugins</groupId>
+      	<artifactId>maven-javadoc-plugin</artifactId>
+      	<version>2.10.3</version>
+      </plugin>
+    </plugins>
+  </build>
+  <name>Cremins Room Scheduler</name>
+  <description>The room scheduler is a piece of software to emulate a system which manages classrooms and meeting scheduling. It was intentionally created very buggy and poorly designed to demonstrate the process behind testing  and maintenance for code.  </description>
+  <issueManagement>
+  	<url>https://github.com/GregoryCremins/MSCS721-roomScheduler</url>
+  	<system>Github</system>
+  </issueManagement>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.google.code.gson</groupId>
+  		<artifactId>gson</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+  </dependencies>
+  <scm>
+  	<url>https://github.com/GregoryCremins/MSCS721-roomScheduler</url>
+  	<connection>scm:git:git://github.com/GregoryCremins/MSCS721-roomScheduler.git</connection>
+  	<developerConnection>scm:git:git@github.com:GregoryCremins/GregoryCremins/MSCS721-roomScheduler.git</developerConnection>
+  </scm>
+</project>
