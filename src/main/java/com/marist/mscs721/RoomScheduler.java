@@ -58,6 +58,7 @@ public class RoomScheduler {
 				break;
 			default:
 				System.out.println("Invalid selection: Please select a number 1-7. Or 0 to exit");
+				break;
 			}
 		}
 	}
@@ -181,6 +182,10 @@ public class RoomScheduler {
 		{
 			try{
 				target = Integer.parseInt(keyboard.next());
+				if(target < 0)
+				{
+					System.out.println("Invalid selection: Please select a number 1-7. Or 0 to exit");
+				}
 			}
 			catch(NumberFormatException e)
 			{
@@ -206,6 +211,7 @@ public class RoomScheduler {
 			System.out.println("Room Name?");
 
 			String test = keyboard.next();
+			System.out.println(findRoomIndex(roomList,test));
 			if(findRoomIndex(roomList, test) == -1)
 			{
 				name = test;
@@ -362,13 +368,19 @@ public class RoomScheduler {
 	protected static int findRoomIndex(ArrayList<Room> roomList, String roomName) {
 		int roomIndex = -1;
 		int finalRoomIndex = -1;
+		boolean found = false;
 		for (Room room : roomList) {
-			if (room.getName().compareTo(roomName) == 0) {
-				break;
+			if (room.getName().compareTo(roomName) == 0 && found == false) 
+			{
+				found = true;
+				roomIndex++;
 			}
-			roomIndex++;
+			if(!found)
+			{
+				roomIndex++;
+			}
 		}
-		if(roomIndex < roomList.size())
+		if(found)
 		{
 			finalRoomIndex = roomIndex;
 		}
@@ -391,6 +403,7 @@ public class RoomScheduler {
 
 			test = keyboard.next();
 
+			System.out.println(findRoomIndex(rooms,test));
 			if(findRoomIndex(rooms, test) == -1)
 			{
 				System.out.println("ERROR: Invalid room. Please input a room that is on the room list.");
@@ -398,7 +411,7 @@ public class RoomScheduler {
 			}
 			else
 			{
-				inputCheck = false;
+				inputCheck = true;
 			}
 		}
 		return test;
