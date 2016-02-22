@@ -2,6 +2,7 @@ package main.java.com.marist.mscs721;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 /**
  * Class to handle room creation and modifcation
  * @author Greg Cremins / Mike Gildein
@@ -132,10 +133,12 @@ public class Room {
 		ArrayList<Meeting> meetingsL = this.meetings;
 		for(Meeting m: meetingsL)
 		{
+			//overlap check
 			if(!(checkMeeting(meeting.getStartTime(), meeting.getStopTime(), m.getStartTime(), m.getStopTime())))
 			{
 				return false;
 			}
+			
 		}
 		return true;
 	}

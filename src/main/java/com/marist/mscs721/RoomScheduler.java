@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -211,7 +212,6 @@ public class RoomScheduler {
 			System.out.println("Room Name?");
 
 			String test = keyboard.next();
-			System.out.println(findRoomIndex(roomList,test));
 			if(findRoomIndex(roomList, test) == -1)
 			{
 				name = test;
@@ -232,6 +232,11 @@ public class RoomScheduler {
 			try{
 				System.out.println("Room capacity?");
 				capacity = keyboard.nextInt();
+				if(capacity <= 0)
+				{
+					System.out.println("ERROR: Room capacity must be greater than 0.");
+					inputCheck = false;
+				}
 			}
 			catch(InputMismatchException e)
 			{
@@ -309,7 +314,14 @@ public class RoomScheduler {
 			if(validateTimestamp(testTime))
 			{
 				startTimestamp = Timestamp.valueOf(testTime);
-				inputCheck = true;
+				if(currentTimeCheck(startTimestamp))
+				{
+					inputCheck = true;
+				}
+				else
+				{
+					System.out.println("ERROR: Time format was corret but time specified was earlier than current time. Please specify a time which is past the current date and time.");
+				}
 			}
 			else
 			{
@@ -330,7 +342,21 @@ public class RoomScheduler {
 			if(validateTimestamp(testTime))
 			{
 				endTimestamp = Timestamp.valueOf(testTime);
-				inputCheck = true;
+				if(currentTimeCheck(endTimestamp))
+				{
+					if(endTimestamp.after(startTimestamp))
+					{
+						inputCheck = true;
+					}
+					else
+					{
+						System.out.println("ERROR: End time was earlier than start time. Please ensure that the meeting end happens after the meeting start.");
+					}
+				}
+				else
+				{
+					System.out.println("ERROR: Time format was corret but time specified was earlier than current time. Please specify a time which is past the current date and time.");
+				}
 			}
 			else
 			{
@@ -402,8 +428,7 @@ public class RoomScheduler {
 			System.out.println("Room Name?");
 
 			test = keyboard.next();
-
-			System.out.println(findRoomIndex(rooms,test));
+		
 			if(findRoomIndex(rooms, test) == -1)
 			{
 				System.out.println("ERROR: Invalid room. Please input a room that is on the room list.");
@@ -435,4 +460,17 @@ public class RoomScheduler {
 		}
 		return returnVal;
 	}
+	
+	/**
+	 * Function to check if the current time stamp is in the future
+	 * @param timeCheck the current time to check
+	 * @return a boolean true if it is past the current time, or false if it is not
+	 */
+	protected static boolean currentTimeCheck(Timestamp timeCheck)
+	{
+		Date now = new Date();
+		Timestamp nowTimeStamp = new Timestamp(now.getTime());
+		return timeCheck.after(nowTimeStamp);
+	}
+	
 }
