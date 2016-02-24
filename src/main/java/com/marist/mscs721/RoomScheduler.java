@@ -1,6 +1,7 @@
 package main.java.com.marist.mscs721;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,6 +29,10 @@ public class RoomScheduler {
 	 */
 	public static void main(String[] args) {
 
+		if(args.length > 0)
+		{
+			keyboard = new Scanner(new ByteArrayInputStream(args[0].getBytes()));
+		}
 		//loop until end occurs
 		Boolean end = false;
 		ArrayList<Room> rooms = new ArrayList<Room>();
