@@ -2,7 +2,6 @@ package main.java.com.marist.mscs721;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 /**
  * Class to handle room creation and modifcation
  * @author Greg Cremins / Mike Gildein
@@ -61,17 +60,17 @@ public class Room {
 	 * Function to add a meeting to a given room
 	 * @param newMeeting the meeting to be added
 	 */
-	public void addMeeting(Meeting newMeeting) 
+	public String addMeeting(Meeting newMeeting) 
 	{ 
 		//add verification
 		if(this.verifySchedule(newMeeting))
 		{
 			this.getMeetings().add(newMeeting);
-			System.out.println("Successfully scheduled meeting!");
+			return("Successfully scheduled meeting!");
 		}
 		else
 		{
-			System.out.println("ERROR: There is a meeting or meetings that overlap with this time, please change the meeting time. Check the schedule for more information");
+			return("There is a meeting or meetings that overlap with this time, please change the meeting time. Check the schedule for more information");
 		}
 	}
 

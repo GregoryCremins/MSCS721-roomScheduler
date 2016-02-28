@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,12 +24,14 @@ import com.google.gson.GsonBuilder;
 public class RoomScheduler {
 	//keyboard reader
 	protected static Scanner keyboard = new Scanner(System.in);
+	
 	/**
 	 * Main function to run the scheduler
 	 * @param args defaulted to null
 	 */
 	public static void main(String[] args) {
 
+		final Logger logger  = Logger.getLogger(RoomScheduler.class.getName());
 		if(args.length > 0)
 		{
 			keyboard = new Scanner(new ByteArrayInputStream(args[0].getBytes()));
@@ -37,44 +40,45 @@ public class RoomScheduler {
 		Boolean end = false;
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		while (!end) {
-			switch (mainMenu()) {
+			switch (mainMenu(logger)) {
 			case 1:
-				System.out.println(addRoom(rooms));
+				addRoom(rooms, logger);
 				break;
 			case 2:
-				System.out.println(removeRoom(rooms));
+				removeRoom(rooms, logger);
 				break;
 			case 3:
-				System.out.print(scheduleRoom(rooms));
+				logger.info(scheduleRoom(rooms, logger));
 				break;
 			case 4:
-				System.out.println(listSchedule(rooms));
+				System.out.println(listSchedule(rooms, logger));
 				break;
 			case 5:
 				System.out.println(listRooms(rooms));
 				break;
 			case 6:
-				exportRooms(rooms);
+				exportRooms(rooms, logger);
 				break;
 			case 7:
-				rooms = importRooms();
+				rooms = importRooms(logger);
 				break;
 			case 0:
 				end = true;
 				break;
 			default:
-				System.out.println("Invalid selection: Please select a number 1-7. Or 0 to exit");
+				logger.warning("Invalid selection: Please select a number 1-7. Or 0 to exit");
 				break;
 			}
 		}
 	}
 	/**
 	 * Function to handle importing room list from a json file
+	 * @param logger the logger for the system
 	 * @return the imported list of rooms and schedules
 	 * Used GSON for importer and exporter, see https://github.com/google/gson
 	 * Some help from: http://www.mkyong.com/java/how-do-convert-java-object-to-from-json-format-gson-api/
 	 */
-	protected static ArrayList<Room> importRooms()
+	protected static ArrayList<Room> importRooms(Logger logger)
 	{
 		ArrayList<Room> finalRooms = new ArrayList<Room>();
 		//get filename
@@ -90,7 +94,7 @@ public class RoomScheduler {
 			}
 			else
 			{
-				System.out.println("ERROR: Please specify a .JSON file.");
+				logger.warning("Please specify a .JSON file.");
 			}
 		}
 		//read from file
@@ -107,16 +111,17 @@ public class RoomScheduler {
 		//catch if unable to find file
 		catch(IOException e)
 		{
-			System.out.println("FAILURE: ERROR READING FROM DISK. Unable to open file. Please check file exists and path is correct.");
+			logger.warning("Unable to open file. Please check file exists and path is correct.");
 		}
 		return finalRooms;
 	}
 	/**
 	 * Function to handle exporting the roomlist to a json file
 	 * @param roomList the roomlist to be exported
+	 * @param logger the logger for the system
 	 * As a default, it will put it in the current running directory if the user does not specify a path, but users can specify a path.
 	 */
-	protected static void exportRooms(ArrayList<Room> roomList)
+	protected static void exportRooms(ArrayList<Room> roomList, Logger logger)
 	{
 		//get new gson object
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss.SSS").create();
@@ -129,7 +134,7 @@ public class RoomScheduler {
 		{
 			if(!filename.contains(".json"))
 			{
-				System.out.println("ERROR: Please make sure your filename ends with .json");
+				logger.warning("Please make sure your filename ends with .json");
 				System.out.println("Please specify full pathname and file to save to:");
 				filename = keyboard.next();
 			}
@@ -143,20 +148,21 @@ public class RoomScheduler {
 			FileWriter writer = new FileWriter(filename);
 			writer.write(json);
 			writer.close();
-			System.out.println("Files exported to " + filename + ".");
+			logger.info("Files exported to " + filename + ".");
 		}
 		catch(IOException e)
 		{
-			System.out.println("ERROR WRITING TO DISK: Unable to create JSON file. Please try again.");
+			logger.warning("Unable to create JSON file. Please try again.");
 		}
 	}
 	/**
 	 * Function to handle listing a schedule for a given room
 	 * @param roomList the current list of rooms
+	 * @param logger the logger for the system
 	 * @return the list of all rooms in the building
 	 */
-	protected static String listSchedule(ArrayList<Room> roomList) {
-		String roomName = getRoomName(roomList);
+	protected static String listSchedule(ArrayList<Room> roomList, Logger logger) {
+		String roomName = getRoomName(roomList, logger);
 		System.out.println(roomName + " Schedule");
 		System.out.println("---------------------");
 		if(roomList.size() > 0)
@@ -169,9 +175,10 @@ public class RoomScheduler {
 	}
 	/**
 	 * Function to handle main menu text population
+	 * @param logger the logger for the system
 	 * @return the number selection from the main menu options
 	 */
-	protected static int mainMenu() {
+	protected static int mainMenu(Logger logger) {
 		System.out.println("Main Menu:");
 		System.out.println("  1 - Add a room");
 		System.out.println("  2 - Remove a room");
@@ -190,12 +197,12 @@ public class RoomScheduler {
 				target = Integer.parseInt(keyboard.next());
 				if(target < 0)
 				{
-					System.out.println("Invalid selection: Please select a number 1-7. Or 0 to exit");
+					logger.warning("Invalid selection: Please select a number 1-7. Or 0 to exit");
 				}
 			}
 			catch(NumberFormatException e)
 			{
-				System.out.println("ERROR: Please input an integer from 0-7");
+				logger.warning("ERROR: Please input an integer from 0-7");
 			}
 		}
 		return target;
@@ -204,9 +211,9 @@ public class RoomScheduler {
 	/**
 	 * Function to handle adding a room
 	 * @param roomList the current list of rooms
-	 * @return a string printed by the above switch statement to alert the user of the created room.
+	 * @param logger the logger for the system
 	 */
-	protected static String addRoom(ArrayList<Room> roomList) {
+	protected static void addRoom(ArrayList<Room> roomList, Logger logger) {
 		System.out.println("Add a room:");
 		String name = "";
 		boolean foundRoom = true;
@@ -223,7 +230,7 @@ public class RoomScheduler {
 			}
 			else
 			{
-				System.out.println("ERROR: Room already created. Please add a differently named room.");
+				logger.warning("Room already created. Please add a differently named room.");
 				foundRoom = true;
 			}
 		}
@@ -239,13 +246,13 @@ public class RoomScheduler {
 				capacity = keyboard.nextInt();
 				if(capacity <= 0)
 				{
-					System.out.println("ERROR: Room capacity must be greater than 0.");
+					logger.warning("Room capacity must be greater than 0.");
 					inputCheck = false;
 				}
 			}
 			catch(InputMismatchException e)
 			{
-				System.out.println("ERROR: INVALID INPUT. Please input a number. ");
+				logger.warning("Invalid input. Please input a number. ");
 				inputCheck = false;
 				keyboard = new Scanner(System.in);
 			}
@@ -253,26 +260,34 @@ public class RoomScheduler {
 
 		Room newRoom = new Room(name, capacity);
 		roomList.add(newRoom);
-		return "Room '" + newRoom.getName() + "' added successfully!";
+		logger.info("Room '" + newRoom.getName() + "' added successfully!");
+		return;
 	}
 
 	/**
 	 * Function to handle removing a room.
 	 * @param roomList the list of rooms 
-	 * @return the string to be printed by the input loop
+	 * @param logger the logger for the system
 	 */
-	protected static String removeRoom(ArrayList<Room> roomList) {
+	protected static void removeRoom(ArrayList<Room> roomList, Logger logger) {
 		System.out.println("Remove a room:");
-		int index = findRoomIndex(roomList, getRoomName(roomList));
+		if(roomList.size() == 0)
+		{
+			logger.info("The room list is empty.");
+			return;
+		}
+		int index = findRoomIndex(roomList, getRoomName(roomList, logger));
 
 		if(index != -1)
 		{
 			roomList.remove(index);
-			return "Room removed successfully!";
+			logger.info("Room removed successfully!");
+			return;
 		}
 		else
 		{
-			return "ERROR: Room not found. Room not removed.";
+			logger.warning("Room not found. Room not removed.");
+			return;
 		}
 	}
 
@@ -297,13 +312,14 @@ public class RoomScheduler {
 	/**
 	 * Function to handle schduling a room
 	 * @param roomList the room list to be added to
+	 * @param logger the logger for the system
 	 * @return a string saying that it either succeeded or failed
 	 */
-	protected static String scheduleRoom(ArrayList<Room> roomList) {
+	protected static String scheduleRoom(ArrayList<Room> roomList, Logger logger) {
 
 		//get the room name
 		System.out.println("Schedule a room:");
-		String name = getRoomName(roomList);
+		String name = getRoomName(roomList, logger);
 
 		boolean inputCheck = false;
 
@@ -325,12 +341,12 @@ public class RoomScheduler {
 				}
 				else
 				{
-					System.out.println("ERROR: Time format was corret but time specified was earlier than current time. Please specify a time which is past the current date and time.");
+					logger.warning("Time format was correct but time specified was earlier than current time. Please specify a time which is past the current date and time.");
 				}
 			}
 			else
 			{
-				System.out.println("ERROR: Please make sure your inputs are in the correct format. Do not go over 24 hours.");
+				logger.warning("Please make sure your inputs are in the correct format. Do not go over 24 hours.");
 			}
 		}
 
@@ -355,17 +371,17 @@ public class RoomScheduler {
 					}
 					else
 					{
-						System.out.println("ERROR: End time was earlier than start time. Please ensure that the meeting end happens after the meeting start.");
+						logger.warning("End time was earlier than start time. Please ensure that the meeting end happens after the meeting start.");
 					}
 				}
 				else
 				{
-					System.out.println("ERROR: Time format was corret but time specified was earlier than current time. Please specify a time which is past the current date and time.");
+					logger.warning("Time format was corret but time specified was earlier than current time. Please specify a time which is past the current date and time.");
 				}
 			}
 			else
 			{
-				System.out.println("ERROR: Please make sure your inputs are in the correct format. Do not go over 24 hours.");
+				logger.warning("Please make sure your inputs are in the correct format. Do not go over 24 hours.");
 			}
 		}
 
@@ -376,8 +392,7 @@ public class RoomScheduler {
 
 		Meeting meeting = new Meeting(startTimestamp, endTimestamp, subject);
 
-		curRoom.addMeeting(meeting);
-		return "";
+		return curRoom.addMeeting(meeting);
 	}
 
 	/**
@@ -422,9 +437,10 @@ public class RoomScheduler {
 	/**
 	 * Function to get a room name from keyboard input
 	 * @param rooms the room list to be parsed
+	 * @param logger the logger for the system
 	 * @return the room string received from input
 	 */
-	protected static String getRoomName(ArrayList<Room> rooms) 
+	protected static String getRoomName(ArrayList<Room> rooms, Logger logger) 
 	{
 		boolean inputCheck = false;
 		String test = "";
@@ -436,7 +452,7 @@ public class RoomScheduler {
 		
 			if(findRoomIndex(rooms, test) == -1)
 			{
-				System.out.println("ERROR: Invalid room. Please input a room that is on the room list.");
+				logger.warning("Invalid room. Please input a room that is on the room list.");
 
 			}
 			else
