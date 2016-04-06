@@ -257,8 +257,18 @@ public class RoomScheduler {
 				keyboard = new Scanner(System.in);
 			}
 		}
+		
+		System.out.println("Building?");
+		String building = keyboard.next();
+		building = building.replace(',', ' ');
+		System.out.println("Location?");
+		String location = keyboard.next();
+		location = location.replace(',', ' ');
+		name = name.replace(',', ' ');
+		
+		
 
-		Room newRoom = new Room(name, capacity);
+		Room newRoom = new Room(name, capacity, building, location);
 		roomList.add(newRoom);
 		logger.info("Room '" + newRoom.getName() + "' added successfully!");
 		return;
@@ -297,11 +307,11 @@ public class RoomScheduler {
 	 * @return the string to be printed by the menu loop
 	 */
 	protected static String listRooms(ArrayList<Room> roomList) {
-		System.out.println("Room Name - Capacity");
+		System.out.println("Room Name - Building Location - Capacity");
 		System.out.println("---------------------");
 
 		for (Room room : roomList) {
-			System.out.println(room.getName() + " - " + room.getCapacity());
+			System.out.println(room.getName() + " - " + room.getBuilding() + " " + room.getLocation() +  " - " + room.getCapacity());
 		}
 
 		System.out.println("---------------------");
@@ -319,7 +329,7 @@ public class RoomScheduler {
 
 		//get the room name
 		System.out.println("Schedule a room:");
-		String name = getRoomName(roomList, logger);
+		
 
 		boolean inputCheck = false;
 
@@ -384,15 +394,38 @@ public class RoomScheduler {
 				logger.warning("Please make sure your inputs are in the correct format. Do not go over 24 hours.");
 			}
 		}
-
+		
+		
 		System.out.println("Subject?");
 		String subject = keyboard.next();
-
-		Room curRoom = getRoomFromName(roomList, name);
-
 		Meeting meeting = new Meeting(startTimestamp, endTimestamp, subject);
+		
+		ArrayList<Room> cleanRooms = getAvailableRooms(roomList, meeting);
 
-		return curRoom.addMeeting(meeting);
+		System.out.println("Do you want a list of available rooms for your meeting? (Y or N)");
+		String answer = keyboard.next();
+			if(answer.toLowerCase().trim().compareTo("y") == 0)
+			{
+				System.out.println("Rooms which are available:");
+				if(cleanRooms.size() > 0)
+				{
+					for(Room testRoom: cleanRooms)
+					{
+						System.out.println(testRoom.getName());
+					}
+				}				
+			}
+			
+			if(cleanRooms.size() <= 0)
+			{
+				return "There are no rooms available for your meeting time. Please try again with a different time.";
+			}
+			else
+			{
+				String name = getRoomName(roomList, logger);
+				Room curRoom = getRoomFromName(roomList, name);
+				return curRoom.addMeeting(meeting);
+			}
 	}
 
 	/**
@@ -434,6 +467,24 @@ public class RoomScheduler {
 		return finalRoomIndex;
 	}
 
+	/**
+	 * Function to figure out which rooms are available for a given time period
+	 * @param rooms the current room list
+	 * @param m the meeting to check
+	 * @return an arraylist of rooms which have availabilities for the given meeting
+	 */
+	protected static ArrayList<Room> getAvailableRooms(ArrayList<Room> rooms, Meeting m)
+	{
+		ArrayList<Room> availableRooms = new ArrayList<Room>();
+		for(Room testRoom: rooms)
+		{
+			if(testRoom.verifySchedule(m))
+			{
+				availableRooms.add(testRoom);
+			}
+		}
+		return availableRooms;
+	}
 	/**
 	 * Function to get a room name from keyboard input
 	 * @param rooms the room list to be parsed

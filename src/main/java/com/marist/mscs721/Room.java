@@ -11,8 +11,11 @@ import java.util.ArrayList;
 public class Room {	
 
 	private String name;
+	private String building;
+	private String location;
 	private int capacity;
 	private ArrayList<Meeting> meetings;
+	
 
 	/**
 	 * Constructor for room
@@ -20,10 +23,12 @@ public class Room {
 	 * @param newCapacity its capacity
 	 * meetings defaulted to null
 	 */
-	public Room(String newName, int newCapacity) {
+	public Room(String newName, int newCapacity, String building, String location) {
 		setName(newName);
 		setCapacity(newCapacity);
 		setMeetings(new ArrayList<Meeting>());
+		setBuilding(building);
+		setLocation(location);
 	}
 	/**
 	 * Overloaded constructor for room given json file data
@@ -32,14 +37,26 @@ public class Room {
 	public Room(String data)
 	{
 		String jsonString = data;
+		//name of room
 		int namePosn = jsonString.indexOf("name") + 4;
 		setName(jsonString.substring(namePosn + 1, jsonString.indexOf(",")));
 		jsonString = jsonString.substring(jsonString.indexOf(",")+ 1, jsonString.length());
+		//building
+		int buildPosn = jsonString.indexOf("Building") + 8;
+		setBuilding(jsonString.substring(buildPosn + 1, jsonString.indexOf(",")));	
+		jsonString = jsonString.substring(jsonString.indexOf(",")+ 1, jsonString.length());
+		//location
+		int locPosn = jsonString.indexOf("Location") + 8;
+		setLocation(jsonString.substring(locPosn + 1, jsonString.indexOf(",")));	
+		jsonString = jsonString.substring(jsonString.indexOf(",")+ 1, jsonString.length());
+		//capacity
 		int capPosn = jsonString.indexOf("capacity") + 8;
 		setCapacity((int)Double.parseDouble(jsonString.substring(capPosn + 1, jsonString.indexOf(","))));
 		jsonString = jsonString.substring(jsonString.indexOf(",")+ 1, jsonString.length());
+		//meetings
 		int meetPosn = jsonString.indexOf("meetings") + 8;
 		jsonString = jsonString.substring(0, jsonString.length() - 1);
+		//add handling for building and location
 		if(jsonString.length() > 14)
 		{
 			String[] meetStrings = jsonString.substring(meetPosn + 3, jsonString.length() - 1).split("}");
@@ -154,6 +171,42 @@ public class Room {
 	{
 		return startA.after(endB) && endA.before(startB);
 		
+	}
+	
+	/**
+	 * Function to set a room's building
+	 * @param building the building the room is located in
+	 */
+	public void setBuilding(String building)
+	{
+		this.building = building;
+	}
+	
+	/**
+	 * Function to set a room's location
+	 * @param location the location where a room is located
+	 */
+	public void setLocation(String location)
+	{
+		this.location = location;
+	}
+	
+	/**
+	 * Function to get the room's building
+	 * @return the building the room is located in
+	 */
+	public String getBuilding()
+	{
+		return this.building;
+	}
+	
+	/**
+	 * Function to get the rooms location geographically
+	 * @return the room's location geographically
+	 */
+	public String getLocation()
+	{
+		return this.location;
 	}
 
 }

@@ -12,7 +12,7 @@ import main.java.com.marist.mscs721.RoomScheduler;
 import org.junit.Test;
 
 /**
- * Test to create a valid room, schedule a meeting for it, and make sure that the meeting is listed when the list command is given
+ * Test to create a valid room, schedule a meeting for it while checking if the room is available, and make sure that the meeting is listed when the list command is given
  * @author Gregory Cremins
  * @version 2-22-2016
  */
@@ -21,7 +21,7 @@ public class ScheduleValidRoomTest {
 	//create room scheduler
 	RoomScheduler rs = new RoomScheduler();
 	//input specification, space separated
-	String[] arguments = new String[]{"1 TestRoom 12 3 TestRoom 2200-02-13 12:00 2200-02-13 14:00 TestSubject 4 TestRoom 0"};
+	String[] arguments = new String[]{"1 TestRoom 12 Dyson MaristCollege 3 2200-02-13 12:00 2200-02-13 14:00 TestSubject Y  TestRoom  4 TestRoom 0"};
 	ByteArrayOutputStream outResults = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(outResults);
 	PrintStream out = System.out;
@@ -36,7 +36,7 @@ public class ScheduleValidRoomTest {
 		System.setOut(out);
 		//Uncomment to show test results
 		//System.out.println("TEST RESULT: " + outResults.toString());
-		boolean roomCreatedTest = outResults.toString().contains("2200-02-13 12:00:00.0 - 2200-02-13 14:00:00.0: TestSubject");
+		boolean roomCreatedTest = outResults.toString().contains("2200-02-13 12:00:00.0 - 2200-02-13 14:00:00.0: TestSubject") && outResults.toString().contains("Rooms which are available:");
 		if(roomCreatedTest)
 		{
 			System.out.println("Test successful.");

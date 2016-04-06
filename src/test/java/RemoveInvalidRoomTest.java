@@ -21,7 +21,7 @@ public class RemoveInvalidRoomTest {
 	//create room scheduler
 	RoomScheduler rs = new RoomScheduler();
 	//input specification, space separated
-	String[] arguments = new String[]{"1 TestRoom 12 1 TestRoom2 24 2 TestRoom3 TestRoom2 5 0"};
+	String[] arguments = new String[]{"1 TestRoom 12 Dyson MaristCollege 1 TestRoom2 24 Dyson MaristCollege 2 TestRoom3 TestRoom2 5 0"};
 	ByteArrayOutputStream outResults = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(outResults);
 	PrintStream out = System.out;
@@ -36,7 +36,7 @@ public class RemoveInvalidRoomTest {
 		System.setOut(out);
 		//Uncomment to show test results
 		//System.out.println("TEST RESULT: " + outResults.toString());
-		boolean roomCreatedTest = outResults.toString().contains("TestRoom - 12") && outResults.toString().contains("ERROR: Invalid room. Please input a room that is on the room list.");
+		boolean roomCreatedTest = outResults.toString().contains("TestRoom - Dyson MaristCollege - 12") && !outResults.toString().contains("TestRoom2 - Dyson MaristCollege - 24");
 		if(roomCreatedTest)
 		{
 			System.out.println("Test successful.");

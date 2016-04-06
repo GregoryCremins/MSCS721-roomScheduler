@@ -21,7 +21,7 @@ public class ScheduleConflictTest {
 	//create room scheduler
 	RoomScheduler rs = new RoomScheduler();
 	//input specification, space separated
-	String[] arguments = new String[]{"1 TestRoom 12 3 TestRoom 2200-02-13 12:00 2200-02-13 14:00 TestSubject 3 TestRoom 2200-02-13 12:00 2200-02-13 13:00 ConflictResolution  4 TestRoom 0"};
+	String[] arguments = new String[]{"1 TestRoom 12 Dyson MaristCollege 3 2200-02-13 12:00 2200-02-13 14:00 TestSubject N TestRoom 3 2200-02-13 12:00 2200-02-13 13:00 ConflictResolution N TestRoom  4 TestRoom 0"};
 	ByteArrayOutputStream outResults = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(outResults);
 	PrintStream out = System.out;
@@ -36,7 +36,7 @@ public class ScheduleConflictTest {
 		System.setOut(out);
 		//Uncomment to show test results
 		//System.out.println("TEST RESULT: " + outResults.toString());
-		boolean roomCreatedTest = !outResults.toString().contains("2200-02-13 12:00:00.0 - 2200-02-13 14:00:00.0: ConflictResolution") && outResults.toString().contains("2200-02-13 12:00:00.0 - 2200-02-13 14:00:00.0: TestSubject") && outResults.toString().contains("ERROR: There is a meeting or meetings that overlap with this time, please change the meeting time. Check the schedule for more information");
+		boolean roomCreatedTest = !outResults.toString().contains("2200-02-13 12:00:00.0 - 2200-02-13 14:00:00.0: ConflictResolution") && outResults.toString().contains("2200-02-13 12:00:00.0 - 2200-02-13 14:00:00.0: TestSubject");
 		if(roomCreatedTest)
 		{
 			System.out.println("Test successful.");

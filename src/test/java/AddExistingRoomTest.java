@@ -21,7 +21,7 @@ public class AddExistingRoomTest {
 	//create room scheduler
 	RoomScheduler rs = new RoomScheduler();
 	//input specification, space separated
-	String[] arguments = new String[]{"1 TestRoom 12 1 TestRoom TestRoom2 24 5 0"};
+	String[] arguments = new String[]{"1 TestRoom 12 Dyson MaristCollege 1 TestRoom TestRoom2 24 Dyson MaristCollege 5 0"};
 	ByteArrayOutputStream outResults = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(outResults);
 	PrintStream out = System.out;
@@ -35,8 +35,8 @@ public class AddExistingRoomTest {
 		System.out.flush();
 		System.setOut(out);
 		//Uncomment to show test results
-		//System.out.println("TEST RESULT: " + outResults.toString());
-		boolean roomCreatedTest = outResults.toString().contains("TestRoom - 12") && outResults.toString().contains("ERROR: Room already created. Please add a differently named room.");
+//		System.out.println("TEST RESULT: " + outResults.toString());
+		boolean roomCreatedTest = outResults.toString().contains("TestRoom - Dyson MaristCollege - 12") && outResults.toString().contains("TestRoom2 - Dyson MaristCollege - 24");
 		if(roomCreatedTest)
 		{
 			System.out.println("Test successful.");

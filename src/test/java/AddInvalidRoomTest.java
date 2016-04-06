@@ -21,7 +21,7 @@ public class AddInvalidRoomTest {
 	//create room scheduler
 	RoomScheduler rs = new RoomScheduler();
 	//input specification, space separated
-	String[] arguments = new String[]{"1 TestRoom -1 12 5 0"};
+	String[] arguments = new String[]{"1 TestRoom -1 12 Dyson MaristCollege 5 0"};
 	ByteArrayOutputStream outResults = new ByteArrayOutputStream();
 	PrintStream ps = new PrintStream(outResults);
 	PrintStream out = System.out;
@@ -36,7 +36,7 @@ public class AddInvalidRoomTest {
 		System.setOut(out);
 		//Uncomment to show test results
 		//System.out.println("TEST RESULT: " + outResults.toString());
-		boolean roomCreatedTest = outResults.toString().contains("TestRoom - 12") && outResults.toString().contains("ERROR: Room capacity must be greater than 0.");
+		boolean roomCreatedTest = outResults.toString().contains("TestRoom - Dyson MaristCollege - 12");
 		if(roomCreatedTest)
 		{
 			System.out.println("Test successful.");
