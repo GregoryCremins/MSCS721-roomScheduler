@@ -14,13 +14,14 @@ import java.util.logging.Logger;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 
 
 /**
  * Class to handle scheduling rooms and meetings
  * @author Greg Cremins/ Mike Gildein
  * @version 1-27-2016
- */
+ */ 
 public class RoomScheduler {
 	//keyboard reader
 	protected static Scanner keyboard = new Scanner(System.in);
@@ -112,6 +113,10 @@ public class RoomScheduler {
 		catch(IOException e)
 		{
 			logger.warning("Unable to open file. Please check file exists and path is correct.");
+		}
+		catch(JsonSyntaxException e)
+		{
+			logger.warning("Error: Json is malformed. Make sure that the JSON is formed correctly.");
 		}
 		return finalRooms;
 	}

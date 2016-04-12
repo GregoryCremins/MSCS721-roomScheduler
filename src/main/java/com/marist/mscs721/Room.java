@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Room {	
 
 	private String name;
-	private String building;
+	private String building; 
 	private String location;
 	private int capacity;
 	private ArrayList<Meeting> meetings;
@@ -21,6 +21,8 @@ public class Room {
 	 * Constructor for room
 	 * @param newName the name of the room
 	 * @param newCapacity its capacity
+	 * @param building the building name
+	 * @param location the location of the new building
 	 * meetings defaulted to null
 	 */
 	public Room(String newName, int newCapacity, String building, String location) {
@@ -42,11 +44,11 @@ public class Room {
 		setName(jsonString.substring(namePosn + 1, jsonString.indexOf(",")));
 		jsonString = jsonString.substring(jsonString.indexOf(",")+ 1, jsonString.length());
 		//building
-		int buildPosn = jsonString.indexOf("Building") + 8;
+		int buildPosn = jsonString.indexOf("Building") + 10;
 		setBuilding(jsonString.substring(buildPosn + 1, jsonString.indexOf(",")));	
 		jsonString = jsonString.substring(jsonString.indexOf(",")+ 1, jsonString.length());
 		//location
-		int locPosn = jsonString.indexOf("Location") + 8;
+		int locPosn = jsonString.indexOf("Location") + 10;
 		setLocation(jsonString.substring(locPosn + 1, jsonString.indexOf(",")));	
 		jsonString = jsonString.substring(jsonString.indexOf(",")+ 1, jsonString.length());
 		//capacity
