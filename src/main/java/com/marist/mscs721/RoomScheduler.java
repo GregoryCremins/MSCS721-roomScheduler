@@ -99,7 +99,7 @@ public class RoomScheduler {
 			}
 		}
 		//read from file
-		Gson gson = new Gson();
+		Gson gson = new Gson(); 
 		try{
 			BufferedReader br = new BufferedReader(new FileReader(filename));
 			ArrayList<?> rooms = gson.fromJson(br, ArrayList.class);

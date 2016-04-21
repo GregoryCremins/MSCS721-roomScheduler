@@ -69,7 +69,7 @@ public class Room {
 			}
 			setMeetings(meetingsA);
 		}
-		else
+		else 
 		{
 			setMeetings(new ArrayList<Meeting>());
 		}
@@ -78,6 +78,7 @@ public class Room {
 	/**
 	 * Function to add a meeting to a given room
 	 * @param newMeeting the meeting to be added
+	 * @return the string statking if the meeting was added successfully
 	 */
 	public String addMeeting(Meeting newMeeting) 
 	{ 

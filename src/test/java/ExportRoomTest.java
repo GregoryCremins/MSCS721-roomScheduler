@@ -2,9 +2,7 @@ package test.java;
 
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.PrintStream;
 
 import main.java.com.marist.mscs721.RoomScheduler;
