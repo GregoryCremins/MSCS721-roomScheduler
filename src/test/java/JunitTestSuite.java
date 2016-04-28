@@ -1,3 +1,8 @@
+/**
+ * Gregory Cremins Software License, 1.0
+ * 
+ * The user of this software has all rights to modify the source code of this file, provided they mention the original developer in each modified file.
+ */
 package test.java;
 
 import org.junit.runner.RunWith;

@@ -1,3 +1,8 @@
+/**
+ * Gregory Cremins Software License, 1.0
+ * 
+ * The user of this software has all rights to modify the source code of this file, provided they mention the original developer in each modified file.
+ */
 package main.java.com.marist.mscs721;
 
 import java.io.BufferedReader;
@@ -21,7 +26,7 @@ import com.google.gson.JsonSyntaxException;
  * Class to handle scheduling rooms and meetings
  * @author Greg Cremins/ Mike Gildein
  * @version 1-27-2016
- */ 
+  */ 
 public class RoomScheduler {
 	//keyboard reader
 	protected static Scanner keyboard = new Scanner(System.in);
